@@ -1,0 +1,11 @@
+Button is pressed.
+-if button is a cell
+    change stack cell to image of uncovered cell. 
+    -if mine
+        replace image with mine in handler and cal makeSeletion at cell
+        gui updater disables buttons, updates moves, and displays game over message
+    -if anything else
+        replace image with number of graph neighbors in handler and call makeSeletion at cell
+        gui updater updates total moves
+-if button is hint
+

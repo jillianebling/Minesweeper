@@ -1,0 +1,36 @@
+    @Override
+    public String toString () {
+        StringBuilder s = new StringBuilder();
+        s.append("GAME BOARD | Move Count: " + moves);
+        for (int i=0; i< row; i++) {
+            s.append("\n");
+            for (int j=0; j<col; j++) {
+                for (Location l: locations.keySet()){
+                    Location e = new Location (i, j);
+                    if (e.equals(l) && !covered.contains(l)) {
+                        s.append("[" + graph.getVerticies().get(e).getNeighbors().size() + "]");
+                    }    
+                        else if (e.equals(l) && covered.contains(l)) {
+                            s.append("[-]");
+                        }    
+                }
+            }
+        }
+
+    // This is just for testing the makeMove and setNeighbors method :D 
+        s.append("\nTESTING BOARD");
+        
+        for (int i=0; i< row; i++) {
+            s.append("\n");
+            for (int j=0; j<col; j++) {
+                for (Location l: locations.keySet()){
+                    Location e = new Location (i, j);
+                    if (e.equals(l))
+                        s.append("[" + locations.get(e) + "]");
+                }
+            }
+        }
+        
+        return s.toString();
+    }
+}
